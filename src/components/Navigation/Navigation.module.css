@@ -1,0 +1,13 @@
+.link {
+  color: darkslateblue;
+  font-size: 26px;
+  text-decoration: ;
+}
+.active {
+  color: darkmagenta;
+  text-decoration: underline wavy rgb(214, 29, 162) 2px;
+}
+.nav {
+  display: flex;
+  gap: 15px;
+}
