@@ -21,7 +21,6 @@ const MoviesPage = () => {
       try {
         const { data } = await fetchSearchMovie(query);
         setMovies(data.results);
-        // console.log(data.results);
       } catch (error) {
         console.log(error);
       }

@@ -9,7 +9,6 @@ const HomePage = () => {
     const getData = async () => {
       try {
         const { data } = await fetchMovies();
-        // console.log(data);
         setMovies(data.results);
       } catch (error) {
         console.log(error);

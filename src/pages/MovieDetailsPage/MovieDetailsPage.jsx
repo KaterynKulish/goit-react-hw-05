@@ -10,7 +10,6 @@ import { fetchMoviesById } from '../../services/api';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  // console.log(movieId);
 
   const [movie, setMovie] = useState(null);
   const location = useLocation();
@@ -21,7 +20,6 @@ const MovieDetailsPage = () => {
       try {
         const { data } = await fetchMoviesById(movieId);
         setMovie(data);
-        // console.log(data);
       } catch (error) {
         console.log(error);
       }

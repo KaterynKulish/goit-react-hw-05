@@ -11,7 +11,6 @@ const MovieCast = () => {
       try {
         const { cast } = await fetchCastById(movieId);
         setCasts(cast);
-        // console.log(cast);
       } catch (error) {
         console.log(error);
       }
