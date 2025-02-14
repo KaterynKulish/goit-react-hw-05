@@ -4,17 +4,23 @@ import { fetchMovies } from '../../services/api';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
+
   useEffect(() => {
     const getData = async () => {
-      const dataMovies = await fetchMovies();
-      console.log(dataMovies);
+      try {
+        const { data } = await fetchMovies();
+        // console.log(data);
+        setMovies(data.results);
+      } catch (error) {
+        console.log(error);
+      }
     };
     getData();
   }, []);
 
   return (
     <div>
-      <MovieList />
+      <MovieList movies={movies} />
     </div>
   );
 };

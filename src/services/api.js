@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-// https://api.themoviedb.org/3/search/movie
-
 const option = {
   headers: {
     Authorization:
@@ -9,12 +7,29 @@ const option = {
   },
 };
 
-// axios.default.baseURL = 'https://api.themoviedb.org/3';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 export const fetchMovies = async () => {
-  const data = await axios.get(
-    'https://api.themoviedb.org/3/trending/movie/day',
-    option
-  );
+  const data = await axios.get('/trending/movie/day', option);
+  return data;
+};
+
+export const fetchMoviesById = async movieId => {
+  const data = await axios.get(`/movie/${movieId}`, option);
+  return data;
+};
+
+export const fetchCastById = async movieId => {
+  const { data } = await axios.get(`/movie/${movieId}/credits`, option);
+  return data;
+};
+
+export const fetchReviews = async movieId => {
+  const data = await axios.get(`movie/${movieId}/reviews`, option);
+  return data;
+};
+
+export const fetchSearchMovie = async query => {
+  const data = await axios.get(`/search/movie?query=${query}`, option);
   return data;
 };
